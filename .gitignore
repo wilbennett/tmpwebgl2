@@ -216,3 +216,4 @@ interopFableFromJS/yarn\.lock
 /dist
 /obj
 /bin
+/JS
