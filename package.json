@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "startDebug": "fable watch src --define DEBUG_LOG -o JS --run parcel ./public/index.html",
+    "start": "fable watch src -o JS --run parcel ./public/index.html",
+    "clean": "fable clean JS --extension .js"
+  },
+  "dependencies": {}
+}

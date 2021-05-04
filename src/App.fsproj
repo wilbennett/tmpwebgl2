@@ -1,0 +1,66 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="core/optionex.fs" />
+    <Compile Include="core/listex.fs" />
+    <Compile Include="core/seqex.fs" />
+    <Compile Include="core/arrayex.fs" />
+    <Compile Include="core/utils.fs" />
+    <Compile Include="core/vectors.fs" />
+    <Compile Include="core/matricies.fs" />
+    <Compile Include="core\perlinnoise.fs" />
+    <Compile Include="twod/bounds.fs" />
+    <Compile Include="js/jsutils.fs" />
+    <Compile Include="js/typedarray_utils.fs" />
+    <Compile Include="browser/browser_extensions.fs" />
+    <Compile Include="browser/browser_types.fs" />
+    <Compile Include="webgl_core/webgl_types.fs" />
+    <Compile Include="webgl_core/webgl_browser_types.fs" />
+    <Compile Include="webgl_core/shader_utils.fs" />
+    <Compile Include="webgl_core/program_utils.fs" />
+    <Compile Include="webgl_data/glmouse.fs" />
+    <Compile Include="webgl_data/glbuffer.fs" />
+    <Compile Include="webgl_data/glcanvasparams.fs" />
+    <Compile Include="webgl_data/webgl_data_types.fs" />
+    <Compile Include="webgl_data/webgl_data.fs" />
+    <Compile Include="webgl_data/glcommon.fs" />
+    <Compile Include="webgl_data/glattribcommonn.fs" />
+    <Compile Include="webgl_data/gldebug.fs" />
+    <Compile Include="webgl_data/glcapabilities.fs" />
+    <Compile Include="webgl_data/gluniform.fs" />
+    <Compile Include="webgl_data/glubouniform.fs" />
+    <Compile Include="webgl_data/glubo.fs" />
+    <Compile Include="webgl_data/glsingleattribute.fs" />
+    <Compile Include="webgl_data/glindicies.fs" />
+    <Compile Include="webgl_data/glinterleavechildattribute.fs" />
+    <Compile Include="webgl_data/glinterleaveattribute.fs" />
+    <Compile Include="webgl_data/glattrib.fs" />
+    <Compile Include="webgl_data/gltexture.fs" />
+    <Compile Include="webgl_data/globj.fs" />
+    <Compile Include="webgl_data/glortho2d.fs" />
+    <Compile Include="webgl_data/glcamera.fs" />
+    <Compile Include="webgl_data/glscene.fs" />
+    <Compile Include="webgl_data/glcanvas.fs" />
+    <Compile Include="webgl_objects/props.fs" />
+    <Compile Include="webgl_objects/glpalette.fs" />
+    <Compile Include="webgl_objects/webglobject.fs" />
+    <Compile Include="webgl_objects/lineobjects2d.fs" />
+    <Compile Include="webgl_objects/linepathobject2d.fs" />
+    <Compile Include="webgl_objects/grid2d.fs" />
+    <Compile Include="webgl_objects\quadobjectbase.fs" />
+    <Compile Include="webgl_objects/vectorobject2d.fs" />
+    <Compile Include="webgl_objects/perlin_common.fs" />
+    <Compile Include="webgl_objects/perlinnoise1dobject2d.fs" />
+    <Compile Include="webgl_objects/perlinnoise2dobject2d.fs" />
+    <Compile Include="webgl_objects/renderer.fs" />
+    <Compile Include="old_tests.fs" />
+    <Compile Include="App.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fable.Core" Version="3.1.5" />
+    <PackageReference Include="Fable.Browser.Dom" Version="1.2.0" />
+    <PackageReference Include="Fable.Browser.WebGL" Version="1.0.0" />
+  </ItemGroup>
+</Project>
