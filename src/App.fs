@@ -550,16 +550,16 @@ let testNoise () =
       globalWithResolutionTime2d
 
       // scene [ SceneName "scene1"; SceneBounds viewport; sharedObjectWithCamera2d ]
-      // scene [ SceneName "scene1"; SceneBounds viewport.Quadrant1; sharedObjectWithCamera2d ]
-      // scene [ SceneName "scene2"; SceneBounds viewport.Quadrant2; sharedObjectWithCamera2d ]
-      // scene [ SceneName "scene3"; SceneBounds viewport.Quadrant3; sharedObjectWithCamera2d ]
+      scene [ SceneName "scene1"; SceneBounds viewport.Quadrant1; sharedObjectWithCamera2d ]
+      scene [ SceneName "scene2"; SceneBounds viewport.Quadrant2; sharedObjectWithCamera2d ]
+      scene [ SceneName "scene3"; SceneBounds viewport.Quadrant3; sharedObjectWithCamera2d ]
       scene [
         SceneName "scene4"
         SceneWorldBounds gridWorld
-        // WorldScale (calcScale viewport.Quadrant4)
-        // SceneBounds viewport.Quadrant4
+        WorldScale (calcScale viewport.Quadrant4)
+        SceneBounds viewport.Quadrant4
         WorldScale (calcScale viewport)
-        SceneBounds viewport
+        // SceneBounds viewport
         Layers 2
         DefaultLayer 0
         sharedObjectWithCamera2d
@@ -571,60 +571,49 @@ let testNoise () =
       ]
     ]
 
-  // let scene1 = canvas |> GlCanvas.getScene "scene1"
-  // let scene2 = canvas |> GlCanvas.getScene "scene2"
-  // let scene3 = canvas |> GlCanvas.getScene "scene3"
+  let scene1 = canvas |> GlCanvas.getScene "scene1"
+  let scene2 = canvas |> GlCanvas.getScene "scene2"
+  let scene3 = canvas |> GlCanvas.getScene "scene3"
   let scene4 = canvas |> GlCanvas.getScene "scene4"
   let renderer = GlRenderer()
-  let vec = renderer.Vector2D(scene4, vec2 1.0 0.0);
-  // vec.LineWidth <- 2.0 * scene4.WorldScale
-  vec.AngleDegreesZ <- 0.0<deg>
-  vec.LineWidth <- scene4 |> GlScene.pixelsToWorld 10.0<px>
-  vec.StrokeColor <- vec4 0.0 0.0 1.0 1.4
-  // vec.FillColor <- vec4 0.0 0.0 1.0 1.4
-  vec.FillColor <- vec4 0.0 0.7 0.0 0.1
-  // vec.FillType <- FillType.Border
-  vec.Position2 <- vec2 -0.0 0.5
-  vec.AliasWidth <- 2.0<px>
-  // vec.AngleDegreesZ <- 30.0<deg>
   let noiseSize = worldBounds.Quadrant1.InflatePct(0.9).Size
-  // let n = renderer.PerlinNoise1DObject2D(scene1, noiseSize, 0, -1, "perlinNoise1D")
-  // n.Octaves <- 1
-  // n.Frequency <- vec2 0.035 0.035
-  // n.Amplitude <- 2.0
-  // n.Lacunarity <- 2.1
-  // n.Range <- 5.0
-  // n.StrokeColor <- vec4 1.0 0.0 0.0 1.0
-  // n.FillColor <- vec4 0.2 0.2 0.2 1.0
-  // n.LineWidth <- 2.0
-  // n.AngleDegreesZ <- 0.0<deg>
-  // n.Scale <- 1.0
+  let n = renderer.PerlinNoise1DObject2D(scene1, noiseSize, 0, -1, "perlinNoise1D")
+  n.Octaves <- 1
+  n.Frequency <- vec2 0.035 0.035
+  n.Amplitude <- 2.0
+  n.Lacunarity <- 2.1
+  n.Range <- 5.0
+  n.StrokeColor <- vec4 1.0 0.0 0.0 1.0
+  n.FillColor <- vec4 0.2 0.2 0.2 1.0
+  n.LineWidth <- 2.0
+  n.AngleDegreesZ <- 0.0<deg>
+  n.Scale <- 1.0
 
-  // // let n2 = renderer.PerlinNoise2DObject2D(scene1, noiseSize, Random().Next(), -1, "perlinNoise2D")
-  // let n2 = renderer.PerlinNoise2DObject2D(scene2, noiseSize, 0, -1, "perlinNoise2D")
-  // n2.Start <- vec2 0.12 0.013
-  // n2.Octaves <- 2
-  // n2.Frequency <- vec3 0.040 0.034 0.0010
-  // n2.Frequency <- vec3 0.040 0.034 0.040
-  // n2.Frequency <- Vec3.Create(0.05)
-  // n2.Amplitude <- 1.0
-  // n2.Lacunarity <- 5.0
-  // n2.Time <- 0.0;
-  // n2.StrokeColor <- vec4 1.0 0.0 0.0 1.0
-  // n2.FillColor <- vec4 0.2 0.2 0.2 1.0
-  // n2.LineWidth <- 2.0
+  // let n2 = renderer.PerlinNoise2DObject2D(scene1, noiseSize, Random().Next(), -1, "perlinNoise2D")
+  let n2 = renderer.PerlinNoise2DObject2D(scene2, noiseSize, 0, -1, "perlinNoise2D")
+  n2.Start <- vec2 0.12 0.013
+  n2.Octaves <- 2
+  n2.Frequency <- vec3 0.040 0.034 0.0010
+  n2.Frequency <- vec3 0.040 0.034 0.040
+  n2.Frequency <- Vec3.Create(0.05)
+  n2.Amplitude <- 1.0
+  n2.Lacunarity <- 5.0
+  n2.Time <- 0.0;
+  n2.StrokeColor <- vec4 1.0 0.0 0.0 1.0
+  n2.FillColor <- vec4 0.2 0.2 0.2 1.0
+  n2.LineWidth <- 2.0
 
-  // let colorMap =
-  //   let stops: ColorStop list = [
-  //     (0.0, vec4 200.0 128.0 0.0 255.0)
-  //     (0.25, vec4 0.0 0.0 0.0 0.0)
-  //     (0.3, vec4 255.0 0.0 0.0 255.0)
-  //     (0.5, vec4 0.0 0.0 0.0 0.0)
-  //     (1.0, vec4 0.0 0.0 0.0 255.0)
-  //   ]
-  //   GlPalette.createPaletteData 30 stops
+  let colorMap =
+    let stops: ColorStop list = [
+      (0.0, vec4 200.0 128.0 0.0 255.0)
+      (0.25, vec4 0.0 0.0 0.0 0.0)
+      (0.3, vec4 255.0 0.0 0.0 255.0)
+      (0.5, vec4 0.0 0.0 0.0 0.0)
+      (1.0, vec4 0.0 0.0 0.0 255.0)
+    ]
+    GlPalette.createPaletteData 30 stops
 
-  // n2.ColorMap <- colorMap
+  n2.ColorMap <- colorMap
 
   // let lines =
   //   let count = 50
@@ -678,25 +667,23 @@ let testNoise () =
     //   linesTime <- linesTime + 0.025
     //   // linesStart += 0.015
 
-    // vec.AngleZ <- sin(fract(time * 3.123 * 0.1)) * (Math.PI * 2.0) |> radians
-    // vec.Vector <- vec.Vector.Rotate(1.0<deg> |> toRadians);
     // updateLines ()
     frame <- frame + 1
     // if frame % 10 = 0 then
     noiseTime <- noiseTime + timeO
-    // n.Time <- noiseTime
-    // n2.Time <- n2.Time + 0.2
-    // oct <- oct + incO
-    // if oct < 2.0 || oct > 16.0 then incO <- -incO
-    // n.Octaves <- int(oct)
-    // // n.Scale <- n.Scale + incS
-    // // if n.Scale < 0.3 || n.Scale > 1.5 then incS <- -incS
-    // n.Start <- n.Start + 0.7
-    // n2.Start <- n2.Start + vec2 0.2 0.1
+    n.Time <- noiseTime
+    n2.Time <- n2.Time + 0.2
+    oct <- oct + incO
+    if oct < 2.0 || oct > 16.0 then incO <- -incO
+    n.Octaves <- int(oct)
+    // n.Scale <- n.Scale + incS
+    // if n.Scale < 0.3 || n.Scale > 1.5 then incS <- -incS
+    n.Start <- n.Start + 0.7
+    n2.Start <- n2.Start + vec2 0.2 0.1
     // n.Frequency <- n.Frequency + incF
-    // if n.Frequency < 0.01 || n.Frequency > 0.05 then incF <- -incF
+    if n.Frequency.Y < 0.01 || n.Frequency.Y > 0.05 then incF <- -incF
 
-    // n2.Start <- n2.Start + vec2 0.7 0.2
+    n2.Start <- n2.Start + vec2 0.7 0.2
     ()
 
   ("Noise", canvas, update, true, 60 * 120)
@@ -764,8 +751,8 @@ let runTests() =
   // run testLine
   // run testLinePath
   // run testLinePathAligned
-  // run testNoise
-  run testVector
+  run testNoise
+  // run testVector
 
 if star.complete then
   runTests()
