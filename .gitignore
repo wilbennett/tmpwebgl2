@@ -213,6 +213,6 @@ mocha/yarn\.lock
 
 interopFableFromJS/yarn\.lock
 
-dist/
-obj/
-bin/
+/dist
+/obj
+/bin
