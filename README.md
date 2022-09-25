@@ -1,3 +1,7 @@
+# Warning
+
+If you stumble upon this code, please be aware that it is all *stream of conciousness* code created while learning F#, WebGL, and fiddling around with Github.  This is about trying out things to see how they work and not about creating *proper* code.  I'll probably be creating several libraries based on stuff I learned with this and the other learning repos though.
+
 # Fable Browser App
 
 This is a simple Fable app which draws a grid into a canvas element. 
